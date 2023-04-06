@@ -17,3 +17,4 @@ This doesn't do anything else! No raycasts, no other adjustments. It does howeve
 'A dynamic image of deep space with the words 'GPS Extended' on top, used as a thumbnail for a space engineers mod called GPS Extended, in a realistic style')
 
 **April 6, 2023: This has now been added to PluginLoader as an option for client side mods. 
+**Mod link on steam: https://steamcommunity.com/sharedfiles/filedetails/?id=2958267813
