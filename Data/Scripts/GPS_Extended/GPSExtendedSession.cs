@@ -29,18 +29,18 @@ namespace GPS_ExtendedMod
         {
             base.BeforeStart();
 
-            MyAPIGateway.Utilities.MessageEntered += OnMessageEntered;
+            MyAPIGateway.Utilities.MessageEnteredSender += OnMessageEntered;
         }
 
         
         protected override void UnloadData()
         {
-            MyAPIGateway.Utilities.MessageEntered -= OnMessageEntered;
+            MyAPIGateway.Utilities.MessageEnteredSender -= OnMessageEntered;
 
             base.UnloadData();
         }
 
-        private void OnMessageEntered(string messageText, ref bool sendToOthers)
+        private void OnMessageEntered(ulong sender, string messageText, ref bool sendToOthers)
         {
             try
             {
@@ -70,7 +70,7 @@ namespace GPS_ExtendedMod
                         }
                         Vector3D position = player.GetPosition();
                         position += MyAPIGateway.Session.Camera.WorldMatrix.Forward * distance;
-                        IMyGps gps = MyAPIGateway.Session.GPS.Create(name, "", position, true, true);
+                        IMyGps gps = MyAPIGateway.Session.GPS.Create(name, "", position, true, false);
                         MyAPIGateway.Session.GPS.AddGps(player.IdentityId, gps);
 
                         sendToOthers = false;
